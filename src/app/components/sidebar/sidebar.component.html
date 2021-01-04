@@ -1,0 +1,35 @@
+
+<div class="logo row">
+   <h3>To Do App</h3>
+</div>
+<div class="sidebar-wrapper">
+  
+ <ul class="nav">
+        <ng-container *ngFor="let menuItem of menuItems">  
+            <li routerLinkActive="active" class="{{menuItem.class}} nav-item" *ngIf='menuItem.children == ""'>
+                <a class="nav-link" [routerLink]="[menuItem.path]">
+                    <i class="material-icons">{{menuItem.icon}}</i>
+                    <p>{{menuItem.title}}</p>
+                </a>
+            </li>
+            <li routerLinkActive="active"  class="{{menuItem.class}}  nav-item" *ngIf="menuItem.children.length > 0">
+                    <a class="nav-link" href="#{{menuItem.title}}" data-toggle="collapse"  aria-expanded="false">
+                        <i class="material-icons">{{menuItem.icon}}</i>
+                        <p>{{menuItem.title}}<b class="caret"></b></p>
+                    </a>
+                    <div class="collapse"  id="{{menuItem.title}}">
+                         <ul class="nav">
+                                <ng-container *ngFor="let submenuItem of menuItem.children">
+                                    <li routerlinkactive="active"  class="{{submenuItem.class}} nav-item" >
+                                        <a class="nav-link" [routerLink]="[submenuItem.path]">
+                                                <i class="material-icons">{{submenuItem.icon}}</i>
+                                                <p>{{submenuItem.title}}</p>
+                                        </a>
+                                    </li>
+                            </ng-container> 
+                         </ul>
+                  </div>
+            </li>
+      </ng-container> 
+    </ul>
+</div>

@@ -1,0 +1,24 @@
+/* .logo{
+    background: url(/assets/img/logo.png) no-repeat;
+    min-height: 60px;
+    background-size: 145px;
+    margin: 8px;
+    margin-left: 40px;
+} */
+
+.logo {
+    background-color: #ffffff;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+.sidebar .nav li a, .sidebar .nav li .dropdown-menu a{
+    margin: 0px!important;
+}
+
+
+.icon-blue-color  i.material-icons{
+    color: #3C4858 !important;
+}

@@ -1,0 +1,31 @@
+table.blueTable td, table.blueTable th {
+    padding: 3px 10px;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  ::ng-deep .cdk-overlay-container{
+    z-index: 9999!important;
+  }
+  .modal-header, .modal-footer {
+    background: #f8f9fa;
+  }
+  .modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  }
+  .close:hover {
+  color: #000;
+  text-decoration: none;
+  }
+  .form-control, .is-focused .form-control {
+  background-image: none !important;
+  /* background-image: linear-gradient(to top, #9c27b0 2px, rgba(156, 39, 176, 0) 2px), linear-gradient(to top, #d2d2d2 1px, rgba(210, 210, 210, 0) 1px); */
+  }
+  

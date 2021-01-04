@@ -1,0 +1,82 @@
+<div class="col-md-12 login-form"  style="background-image:url(assets/Images/attnd-clay.png); background-size: contain;background-repeat: no-repeat;height: 100%;">
+  <div class="row">
+    <div class="col-md-6  login-left-section">
+      <div class="container login-logo">
+        <img src="assets/Images/logo.png" style="width: 20%"/>
+        <div class="login-right-image">
+         
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3 login-right-section">
+      <div class="login-right-form container">
+        <div class="SIGN-IN-Text">
+          SIGN IN
+          <div class="Intersection-1"></div>
+        </div>
+         <p class="login-title-below-text">
+          The Smartest way to manage your business,
+          field workers & employees
+        </p>
+        <form role="form"
+          (ngSubmit)="f.form.valid && login()"
+          #f="ngForm"
+          novalidate>
+          <mat-form-field appearance="legacy"
+            class="login-label-icon"
+            [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <span matPrefix><img class="login-form-icon"
+                src="assets/Images/user_icon_ashh.svg" /></span>
+            <input matInput
+              placeholder="Enter your login ID"
+              name="username"
+              [(ngModel)]="model.username"
+              #username="ngModel"
+              required>
+          </mat-form-field>
+          <mat-form-field [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <span matPrefix><img class="login-form-icon"
+                src="assets/Images/password_icon_ashh.svg" /></span>
+            <input matInput
+              name="password"
+              placeholder="Enter your password"
+              [type]="hide ? 'password' : 'text'"
+              [(ngModel)]="model.password"
+              #password="ngModel"
+              required>
+            <a mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </a>
+          </mat-form-field>
+          <form [formGroup]="options">
+            <mat-checkbox formControlName="hideRequired">Remember Me?</mat-checkbox>
+          </form>
+          <div class="text-center">
+            <button [disabled]="loading"
+              class="btn my-4" style="background-color:  #2356ff;color: #ffffff;width: 100%;">LOGIN</button>
+              <img *ngIf="loading"
+              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              
+              <br>
+              Don't have an account?
+                        <a href="#/register">Sign Up</a>
+          </div>
+        </form>
+
+      </div>
+      <div class="login-footer-bottom">
+        &copy;
+        {{test | date: 'yyyy'}}, TrillionBits.
+      </div>
+    </div>
+
+  </div>
+
+</div>

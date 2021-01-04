@@ -1,0 +1,80 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-lg-12 col-md-12">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="col-lg-12 col-md-12">
+          <div class="main-card mb-3 card">
+            <div class="card-header">
+              <h5>To Do List</h5>
+              <span>
+                <img class="export-excel" src="../../../../../assets/Images/excel.png" (click) ="exportExcel()"/>
+              </span>
+              <div class="btn-actions-pane-right">
+                <button type="button"
+                  class="btn btn-success btn-sm float-right"
+                  (click)="addOrUpdateDepartmentPopup('0')">
+                  <i class="material-icons pointer add">add</i>
+                  Create
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <div class="spinner-wrapper">
+                <mat-spinner [hidden]="!loading"></mat-spinner>
+              </div>
+              <div class="text-center"
+                *ngIf="dataList==null">
+                No records to show in this view
+              </div>
+              <table *ngIf="dataList!=null"
+                class="align-middle mb-0 table table-borderless table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th class="text-center th-color">#</th>
+
+                    <th class="text-center th-color">Name</th>
+                    <th class="text-center th-color">Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let a of dataList | paginate: { itemsPerPage: 10, currentPage: p };let i = index;">
+                   
+                    <td class="text-center">{{10  * (p - 1) + (i+1)}}</td>
+                    <td class="text-center">{{a.name}}</td>
+                    <td class="text-center">
+                      <i class="material-icons pointer"
+                        (click)="addOrUpdateDepartmentPopup(a)">edit</i>
+                      <i class="material-icons pointer"
+                        (click)="openConfirmationDialog(a.Id)">delete</i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+            <div class="d-block text-center card-footer">
+              <div class="paginationDiv"
+                *ngIf="dataList!=null">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
